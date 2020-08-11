@@ -1,3 +1,10 @@
 ### Hi there 👋
 
-- 📫 How to reach me: [Linkdin](https://www.linkedin.com/in/alicenkbaytop/)
+💻 [Medium](Medium) **|**
+📦 [Kaggle][Kaggle] **|** 
+👔 [linkedin][linkedin]
+
+
+[Medium]: https://medium.com/@baytop.alicenk
+[Kaggle]: https://www.kaggle.com/alicenkbaytop
+[linkedin]: https://www.linkedin.com/in/alicenkbaytop/
