@@ -2,9 +2,9 @@
 
 💻 [Medium](Medium) **|**
 📦 [Kaggle][Kaggle] **|** 
-👔 [linkedin][linkedin]
+👔 [Linkedin][linkedin]
 
 
 [Medium]: https://medium.com/@baytop.alicenk
 [Kaggle]: https://www.kaggle.com/alicenkbaytop
-[linkedin]: https://www.linkedin.com/in/alicenkbaytop/
+[Linkedin]: https://www.linkedin.com/in/alicenkbaytop/
