@@ -1,6 +1,6 @@
 ### Hi there 👋
 
-💻 [Medium](Medium) **|**
+💻 [Medium][Medium] **|**
 📦 [Kaggle][Kaggle] **|** 
 👔 [Linkedin][linkedin]
 
