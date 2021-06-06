@@ -5,7 +5,7 @@
 👔 [Linkedin][linkedin]
 
 
-[Medium]: https://medium.com/@baytop.alicenk
+[Medium]: https://medium.com/@alicenkbaytop
 [Kaggle]: https://www.kaggle.com/alicenkbaytop
 [Linkedin]: https://www.linkedin.com/in/alicenkbaytop/
 
