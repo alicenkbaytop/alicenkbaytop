@@ -3,7 +3,7 @@
 
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=alicenkbaytop&label=Profile%20views&color=0e75b6&style=flat" alt="alicenkbaytop" /> </p>
 
-- 🌱 I’m currently learning **Django**
+- 🌱 I’m currently learning **computer vision**
 
 - 📫 How to reach me **baytop.alicenk@gmail.com**
 
