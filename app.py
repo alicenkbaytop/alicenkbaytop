@@ -45,8 +45,7 @@ llm = ChatGroq(groq_api_key=groq_api_key, model_name="Llama3-8b-8192")
 # Define prompt template
 prompt = ChatPromptTemplate.from_template(
     """
-    Sadece verilen bağlama göre cevap veriniz.
-    Soruyu göz önünde bulundurarak ilgili tüm cevapları Türkçe dilinde veriniz.
+    Answer questions up to given content.
     <context>{context}</context>
     {input}
     """
