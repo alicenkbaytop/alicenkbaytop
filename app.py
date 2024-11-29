@@ -1,13 +1,14 @@
 import logging
 from flask import Flask, render_template, request, jsonify
-from langchain_groq import ChatGroq
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_groq import ChatGroq
 from langchain.chains import create_retrieval_chain
 from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
+from langchain_groq import ChatGroq
 from dotenv import load_dotenv
 from flask_cors import CORS, cross_origin 
 import os
@@ -32,21 +33,36 @@ logging.basicConfig(
     ]
 )
 
-# Load API keys from environment variables
-groq_api_key = os.getenv("GROQ_API_KEY")
+# Initialize API keys
 google_api_key = os.getenv("GOOGLE_API_KEY")
+groq_api_key = os.getenv("GROQ_API_KEY")
 
-# Set the Google API key in the environment (needed for certain libraries)
-os.environ["GOOGLE_API_KEY"] = google_api_key
+llm = ChatGroq(
+    model="mixtral-8x7b-32768",
+    temperature=0,
+    max_tokens=None,
+    timeout=None,
+    max_retries=2,
+    # other params...
+)
 
-# Initialize LLM model
-llm = ChatGroq(groq_api_key=groq_api_key, model_name="Llama3-8b-8192")
+prompt = ChatPromptTemplate.from_messages(
+    [
+        (
+            "system",
+            "You are a helpful assistant that answer questions up tp {loader}.",
+        ),
+        ("human", "{input}"),
+    ]
+)
+
+chain = prompt | llm
 
 # Define prompt template
 prompt = ChatPromptTemplate.from_template(
     """
     Answer questions up to given content.
-    <context>{context}</context>
+    {context}
     {input}
     """
 )
@@ -78,7 +94,7 @@ def get_answer():
         start = time.process_time()
         
         # Get the response using the retrieval chain
-        response = retrieval_chain.invoke({"input": question})
+        response = retrieval_chain.invoke({"output_language": "English", "input": question})
         
         # Log the response time
         print("Response time: ", time.process_time() - start)
@@ -101,7 +117,6 @@ def check_connection():
         return jsonify({"status": "connected"})
     except Exception as e:
         return jsonify({"status": "disconnected", "error": str(e)}), 500
-
 
 if __name__ == "__main__":
     # Run the app on localhost with port 5001
