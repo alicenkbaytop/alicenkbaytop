@@ -12,6 +12,9 @@ from dotenv import load_dotenv
 from flask_cors import CORS, cross_origin 
 import os
 import time
+from langchain_cohere import ChatCohere
+
+
 
 # Load environment variables
 load_dotenv()
@@ -35,14 +38,22 @@ logging.basicConfig(
 # Initialize API keys
 google_api_key = os.getenv("GOOGLE_API_KEY")
 groq_api_key = os.getenv("GROQ_API_KEY")
+cohere_api_key = os.getenv("COHERE_API_KEY")
 
-llm = ChatGroq(
-    model="mixtral-8x7b-32768",
+llm = ChatCohere(
+    model="command",  # Their main generation model
     temperature=0,
-    max_tokens=None,
-    timeout=None,
-    max_retries=2
+    max_tokens=1500,
+    api_key=os.getenv("COHERE_API_KEY")  # Get a free API key from Cohere
 )
+
+# llm = ChatGroq(
+#     model="mixtral-8x7b-32768",
+#     temperature=0,
+#     max_tokens=None,
+#     timeout=None,
+#     max_retries=2
+# )
 
 prompt = ChatPromptTemplate.from_messages(
     [
