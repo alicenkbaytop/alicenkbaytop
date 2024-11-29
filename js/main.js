@@ -26,7 +26,7 @@ function closeChatPopup() {
 // Function to check model connection
 async function checkModelConnection() {
   try {
-    const response = await fetch("http://127.0.0.1:5001/check_connection", {
+    const response = await fetch("http://localhost:5001/check_connection", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -68,7 +68,7 @@ async function searchQuestion() {
   }
    
   try {
-    const response = await fetch("http://127.0.0.1:5001/get_answer", {
+    const response = await fetch("http://localhost:5001/get_answer", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

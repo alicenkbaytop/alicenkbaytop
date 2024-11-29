@@ -23,7 +23,7 @@ load_dotenv()
 app = Flask(__name__)
 
 # Enable CORS for the app
-CORS(app) 
+CORS(app, resources={r"/*": {"origins": "https://alicenkbaytop.github.io"}})
 
 # Set up logging configuration
 logging.basicConfig(
