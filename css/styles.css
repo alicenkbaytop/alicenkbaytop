@@ -462,15 +462,97 @@ footer {
 
     .nav-links {
         gap: 1rem;
+        flex-wrap: wrap;
     }
 
     .nav-links a {
-        margin: 0 1rem;
+        margin: 0.5rem;
     }
 
     .hero h1 {
         font-size: 2rem;
     }
 
-    /* Chatbot */
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column for smaller screens */
+        padding: 1rem;
+    }
+
+    .projects-filter {
+        margin: 1rem 0;
+    }
+
+    .blog-container {
+        padding: 1rem;
+    }
+
+    footer {
+        padding: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        gap: 0.5rem;
+    }
+
+    .nav-brand {
+        font-size: 1.25rem;
+    }
+
+    .nav-links {
+        display: block;
+    }
+
+    .hero {
+        padding: 2rem 0.5rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        padding: 1rem 2%;
+    }
+
+    .project-box img {
+        height: 150px; /* Smaller image for compact view */
+    }
+
+    #chat-bot {
+        width: 80px;
+        height: 80px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    #chat-bot img {
+        width: 60px;
+        height: 60px;
+    }
+
+    #chat-popup {
+        width: 300px;
+        bottom: 15px;
+        right: 15px;
+    }
+
+    #ai-container {
+        padding: 20px;
+        height: auto;
+        font-size: 14px;
+    }
+
+    footer {
+        padding: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .social-links a {
+        font-size: 1.2rem;
+        margin: 0 0.5rem;
+    }
 }

@@ -41,8 +41,7 @@ llm = ChatGroq(
     temperature=0,
     max_tokens=None,
     timeout=None,
-    max_retries=2,
-    # other params...
+    max_retries=2
 )
 
 prompt = ChatPromptTemplate.from_messages(
