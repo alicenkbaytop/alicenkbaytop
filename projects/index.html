@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - ACB</title>
+    <link rel="icon" href="public/images/rubber-duck.png" type="image/png">
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -31,16 +32,31 @@
         <div class="projects-filter">
             <button class="filter-btn active" data-filter="all">All</button>
             <button class="filter-btn" data-filter="ml">Machine Learning</button>
+            <button class="filter-btn" data-filter="cv">Computer Vision</button>
+            <button class="filter-btn" data-filter="nlp">Natural Language Processing</button>
             <button class="filter-btn" data-filter="analysis">Data Analysis</button>
-            <button class="filter-btn" data-filter="viz">Visualization</button>
         </div>
 
         <section class="projects-grid">
-            <article class="project-card" data-category="ml">
-                <img src="public/images/race.png" alt="Project 1">
+            <article class="project-card" data-category="nlp">
+                <img src="../public/images/rag.png" alt="Project 1">
+                <div class="project-content">
+                    <h2>Q&A Assistant</h2>
+                    <p>RAG, Groq, LLM, Embedding</p>
+                    <div class="project-links">
+                        <a href="https://github.com/alicenkbaytop/NLP/tree/main/RAG" class="github-link">
+                            <i class="fab fa-github"></i> View Code
+                        </a>
+                        <a href="#" class="demo-link">Live Demo</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card" data-category="cv">
+                <img src="../public/images/race.png" alt="Project 2">
                 <div class="project-content">
                     <h2>Runner Counter Tracking</h2>
-                    <p>YOLO, tracking</p>
+                    <p>YOLO, Tracking</p>
                     <div class="project-links">
                         <a href="https://github.com/alicenkbaytop/computer-vision/tree/main/running_race_counter" class="github-link">
                             <i class="fab fa-github"></i> View Code
