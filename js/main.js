@@ -124,32 +124,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Presentation Page Filter
-document.addEventListener("DOMContentLoaded", () => {
-  const filterButtons = document.querySelectorAll(".filter-btn");
-  const projectCards = document.querySelectorAll(".project-card");
-
-  filterButtons.forEach(button => {
-      button.addEventListener("click", () => {
-          // Remove active class from all buttons
-          filterButtons.forEach(btn => btn.classList.remove("active"));
-          button.classList.add("active"); // Add active class to clicked button
-
-          const filter = button.getAttribute("data-filter");
-
-          // Show/Hide project cards based on the filter
-          projectCards.forEach(card => {
-              const category = card.getAttribute("data-category");
-
-              if (filter === "all" || category === filter) {
-                  card.classList.add("show");
-              } else {
-                  card.classList.remove("show");
-              }
-          });
-      });
-  });
-
-  // Initially display all projects
-  projectCards.forEach(card => card.classList.add("show"));
-});
+// Projects Page Filter
