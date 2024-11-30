@@ -123,3 +123,32 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
+
+// Presentation Page Filter
+document.addEventListener("DOMContentLoaded", () => {
+  const filterButtons = document.querySelectorAll(".filter-btn");
+  const projectCards = document.querySelectorAll(".project-card");
+
+  filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+          // Remove active class from all buttons
+          filterButtons.forEach(btn => btn.classList.remove("active"));
+          // Add active class to the clicked button
+          button.classList.add("active");
+
+          const filter = button.getAttribute("data-filter");
+
+          // Show/Hide project cards based on filter
+          projectCards.forEach(card => {
+              if (filter === "all" || card.getAttribute("data-category") === filter) {
+                  card.classList.add("show");
+              } else {
+                  card.classList.remove("show");
+              }
+          });
+      });
+  });
+
+  // Initialize: show all cards on page load
+  projectCards.forEach(card => card.classList.add("show"));
+});

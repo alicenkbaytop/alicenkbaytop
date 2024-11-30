@@ -234,6 +234,14 @@ body {
     padding: 3rem 1rem;
 }
 
+.project-card {
+    display: none;
+}
+
+.project-card.show {
+    display: block;
+}
+
 /* Chatbot */
 #chat-bot {
     width: 100px;
