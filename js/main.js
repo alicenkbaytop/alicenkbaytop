@@ -133,14 +133,15 @@ document.addEventListener("DOMContentLoaded", () => {
       button.addEventListener("click", () => {
           // Remove active class from all buttons
           filterButtons.forEach(btn => btn.classList.remove("active"));
-          // Add active class to the clicked button
-          button.classList.add("active");
+          button.classList.add("active"); // Add active class to clicked button
 
           const filter = button.getAttribute("data-filter");
 
-          // Show/Hide project cards based on filter
+          // Show/Hide project cards based on the filter
           projectCards.forEach(card => {
-              if (filter === "all" || card.getAttribute("data-category") === filter) {
+              const category = card.getAttribute("data-category");
+
+              if (filter === "all" || category === filter) {
                   card.classList.add("show");
               } else {
                   card.classList.remove("show");
@@ -149,6 +150,6 @@ document.addEventListener("DOMContentLoaded", () => {
       });
   });
 
-  // Initialize: show all cards on page load
+  // Initially display all projects
   projectCards.forEach(card => card.classList.add("show"));
 });

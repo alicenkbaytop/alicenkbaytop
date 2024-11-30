@@ -176,6 +176,11 @@ body {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.project-card.show {
+    display: block;
 }
 
 .project-content {
@@ -232,14 +237,6 @@ body {
 .page-header {
     text-align: center;
     padding: 3rem 1rem;
-}
-
-.project-card {
-    display: none;
-}
-
-.project-card.show {
-    display: block;
 }
 
 /* Chatbot */
