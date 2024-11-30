@@ -1,5 +1,3 @@
 .env
 question_logs.log
 test_api.py
-requirements.in
-dependencies.txt
