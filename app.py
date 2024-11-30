@@ -100,21 +100,21 @@ def get_answer():
         retrieval_chain = create_retrieval_chain(retriever, document_chain)
         
         # Measure response time
-        start = time.process_time()
+        start = time.time()
         
         # Get the response using the retrieval chain
         response = retrieval_chain.invoke({"output_language": "English", "input": question})
         
         # Log the response time
-        print("Response time: ", time.process_time() - start)
-        
+        #print("Response time: ", time.time() - start)
+        response_time = time.time() - start
         # Extract and return the answer
         answer = response.get("answer", "No answer found.")
         
         # Log the question and answer
-        logging.info(f"Question: {question} | Answer: {answer}")
+        logging.info(f"Question: {question} | Answer: {answer} | Response Time: {response_time:.2f} seconds")
         
-        return jsonify({"answer": answer})
+        return jsonify({"answer": answer, "response_time": f"{response_time:.2f} seconds"})
     else:
         # If no question is provided, return an error
         return jsonify({"error": "No question provided"}), 400

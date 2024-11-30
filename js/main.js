@@ -35,7 +35,7 @@ async function checkModelConnection() {
     const data = await response.json();
     return data.status === "connected";
   } catch (error) {
-    console.error("Model bağlantısı kontrol edilirken hata:", error);
+    console.error("Error checking model connection:", error);
     return false;
   }
 }
@@ -50,8 +50,8 @@ async function searchQuestion() {
   const question = questionInput.value.trim();
    
   // Validate question length
-  if (question.split(" ").length < 2) {
-    resultElement.innerHTML = "Lütfen daha fazla bilgi vererek soruyu tekrar sorunuz.";
+  if (question.split(" ").length > 20) {
+    resultElement.innerHTML = "Please limit your question to 20 words or less.";
     return;
   }
    
@@ -62,7 +62,7 @@ async function searchQuestion() {
   // Check model connection first
   const isModelConnected = await checkModelConnection();
   if (!isModelConnected) {
-    resultElement.innerHTML = "Model bağlantısı kurulamadı. Lütfen sistem yöneticinize başvurun.";
+    resultElement.innerHTML = "The model connection could not be established. Please contact your system administrator.";
     loadingElement.style.display = "none";
     return;
   }
@@ -77,7 +77,7 @@ async function searchQuestion() {
     });
        
     if (!response.ok) {
-      throw new Error("Ağ yanıtı yok.");
+      throw new Error("No network response.");
     }
        
     const data = await response.json();
@@ -86,11 +86,11 @@ async function searchQuestion() {
       resultElement.innerHTML = data.answer;
       responseTimeElement.innerHTML = `Response time: ${data.response_time}`;
     } else {
-      resultElement.innerHTML = "Cevap alınırken hata oluştu. Lütfen tekrar deneyin.";
+      resultElement.innerHTML = "There was an error receiving a reply. Please try again.";
     }
   } catch (error) {
-    console.error("Yanıt getirilirken hata oluştu:", error);
-    resultElement.innerHTML = "Model yanıt vermiyor. Lütfen daha sonra tekrar deneyin.";
+    console.error("Error fetching response:", error);
+    resultElement.innerHTML = "The model is not responding. Please try again later.";
   } finally {
     loadingElement.style.display = "none";
   }
@@ -119,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
   checkModelConnection().then(isConnected => {
     if (!isConnected) {
       const resultElement = document.getElementById("result");
-      resultElement.innerHTML = "Model bağlantısı kurulamadı. Lütfen sistem yöneticinize başvurun.";
+      resultElement.innerHTML = "The model connection could not be established. Please contact your system administrator.";
     }
   });
 });
