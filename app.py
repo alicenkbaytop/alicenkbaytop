@@ -9,11 +9,10 @@ from langchain_community.vectorstores import FAISS
 from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_google_genai import GoogleGenerativeAIEmbeddings
 from dotenv import load_dotenv
-from flask_cors import CORS, cross_origin 
+from flask_cors import CORS, cross_origin
 import os
 import time
 from langchain_cohere import ChatCohere
-
 
 
 # Load environment variables
@@ -27,12 +26,12 @@ CORS(app, resources={r"/*": {"origins": "https://alicenkbaytop.github.io"}})
 
 # Set up logging configuration
 logging.basicConfig(
-    level=logging.INFO, 
-    format='%(asctime)s - %(message)s', 
+    level=logging.INFO,
+    format="%(asctime)s - %(message)s",
     handlers=[
         logging.FileHandler("question_logs.log"),  # Log to a file
-        logging.StreamHandler()  # Also log to the console
-    ]
+        logging.StreamHandler(),  # Also log to the console
+    ],
 )
 
 # Initialize API keys
@@ -44,7 +43,7 @@ llm = ChatCohere(
     model="command",  # Their main generation model
     temperature=0,
     max_tokens=1500,
-    api_key=os.getenv("COHERE_API_KEY")  # Get a free API key from Cohere
+    api_key=os.getenv("COHERE_API_KEY"),  # Get a free API key from Cohere
 )
 
 # llm = ChatGroq(
@@ -88,36 +87,44 @@ final_documents = text_splitter.split_documents(docs[:20])
 # Build FAISS index from documents
 vectors = FAISS.from_documents(final_documents, embeddings)
 
+
 @app.route("/get_answer", methods=["POST"])
 def get_answer():
     data = request.json  # Get JSON data
-    
+
     question = data.get("question", "")  # Access 'question' from JSON payload
     if question:
         # Create document chain and retrieval chain
         document_chain = create_stuff_documents_chain(llm, prompt)
         retriever = vectors.as_retriever()
         retrieval_chain = create_retrieval_chain(retriever, document_chain)
-        
+
         # Measure response time
         start = time.time()
-        
+
         # Get the response using the retrieval chain
-        response = retrieval_chain.invoke({"output_language": "English", "input": question})
-        
+        response = retrieval_chain.invoke(
+            {"output_language": "English", "input": question}
+        )
+
         # Log the response time
-        #print("Response time: ", time.time() - start)
+        # print("Response time: ", time.time() - start)
         response_time = time.time() - start
         # Extract and return the answer
         answer = response.get("answer", "No answer found.")
-        
+
         # Log the question and answer
-        logging.info(f"Question: {question} | Answer: {answer} | Response Time: {response_time:.2f} seconds")
-        
-        return jsonify({"answer": answer, "response_time": f"{response_time:.2f} seconds"})
+        logging.info(
+            f"Question: {question} | Answer: {answer} | Response Time: {response_time:.2f} seconds"
+        )
+
+        return jsonify(
+            {"answer": answer, "response_time": f"{response_time:.2f} seconds"}
+        )
     else:
         # If no question is provided, return an error
         return jsonify({"error": "No question provided"}), 400
+
 
 @app.route("/check_connection", methods=["GET"])
 def check_connection():
@@ -127,6 +134,7 @@ def check_connection():
     except Exception as e:
         return jsonify({"status": "disconnected", "error": str(e)}), 500
 
+
 if __name__ == "__main__":
     # Run the app on localhost with port 5001
-    app.run(debug=True, host='0.0.0.0', port=5001)
+    app.run(debug=True, host="0.0.0.0", port=5001)

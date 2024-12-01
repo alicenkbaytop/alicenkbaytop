@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-brand">
@@ -58,7 +60,8 @@
                     <h2>Runner Counter Tracking</h2>
                     <p>YOLO, Tracking</p>
                     <div class="project-links">
-                        <a href="https://github.com/alicenkbaytop/computer-vision/tree/main/running_race_counter" class="github-link">
+                        <a href="https://github.com/alicenkbaytop/computer-vision/tree/main/running_race_counter"
+                            class="github-link">
                             <i class="fab fa-github"></i> View Code
                         </a>
                         <a href="#" class="demo-link">Live Demo</a>
@@ -69,27 +72,51 @@
         </section>
     </main>
 
+    <div id="chat-bot">
+        <img src="../public/images/duck.gif" alt="Chatbot" />
+    </div>
+
+    <div id="chat-popup">
+        <div class="popup-content-chatbot">
+            <span class="close-btn-chatbot" onclick="closePopupChatbot()">X</span>
+            <div id="ai-container">
+                <h1 id="header-ai">Duckie</h1>
+                <div id="random-word" class="word"></div>
+                <form onsubmit="event.preventDefault();">
+                    <div class="input-container">
+                        <input type="text" id="input-ai" name="input-ai" required onkeydown="handleKeyPress(event)" />
+                        <button id="button-ai" type="submit" onclick="searchQuestion()">
+                            Search
+                        </button>
+                    </div>
+                </form>
+                <div id="loading" style="display: none">
+                    <div class="spinner"></div>
+                    loading...
+                </div>
+                <div id="result"></div>
+                <div id="response-time"></div>
+            </div>
+
+            <!-- Add more content here as needed -->
+        </div>
+    </div>
+
     <footer>
         <div class="social-links">
-            <a href="https://github.com/alicenkbaytop"
-              ><i class="fab fa-github"></i
-            ></a>
-            <a href="https://linkedin.com/in/alicenkbaytop"
-              ><i class="fab fa-linkedin"></i
-            ></a>
-            <a href="https://medium.com/@alicenkbaytop"
-              ><i class="fab fa-medium"></i
-            ></a>
-            <a href="https://open.spotify.com/show/34DZPR3Sa03jYjoO6vgnbE"
-              ><i class="fa-brands fa-spotify"></i
-            ></a>
-            <a href="mailto:your.email@example.com"
-              ><i class="fas fa-envelope"></i
-            ></a>
-          </div>
+            <a href="https://github.com/alicenkbaytop"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/alicenkbaytop"><i class="fab fa-linkedin"></i></a>
+            <a href="https://medium.com/@alicenkbaytop"><i class="fab fa-medium"></i></a>
+            <a href="https://open.spotify.com/show/34DZPR3Sa03jYjoO6vgnbE"><i class="fa-brands fa-spotify"></i></a>
+            <a href="mailto:baytop.alicenk@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
         <p>© 2024 Ali Cenk Baytop. All rights reserved.</p>
-      </footer>
+    </footer>
 
-    <script src="../js/projects.js"></script>
+    <script src="../js/main.js"></script>
+
+    <!-- 100% privacy-first analytics -->
+    <script async src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 </body>
+
 </html>

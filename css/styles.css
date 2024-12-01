@@ -90,7 +90,7 @@ body {
     text-decoration: none;
     color: var(--text-color);
     transition: transform 0.2s;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .project-box:hover {
@@ -175,7 +175,7 @@ body {
     background: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .project-content {
@@ -200,7 +200,7 @@ body {
     background: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .presentation-preview {
@@ -213,7 +213,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -316,7 +316,7 @@ body {
 
 #ai-container {
     position: relative;
-    
+
     padding: 40px;
     border-radius: 8px;
     width: 100%;
@@ -343,11 +343,13 @@ body {
     margin-bottom: 15px;
     text-align: center;
 }
+
 /* Style the form to display the input and button inline */
 form {
     display: flex;
     justify-content: center;
-    gap: 10px;  /* Space between the input and button */
+    gap: 10px;
+    /* Space between the input and button */
     margin-top: 15px;
 }
 
@@ -361,7 +363,8 @@ form {
     border: 1px solid var(--accent-color);
     border-radius: 4px;
     font-size: 16px;
-    width: 70%; /* Adjust width as needed */
+    width: 70%;
+    /* Adjust width as needed */
 }
 
 #input-ai:focus {
@@ -402,8 +405,13 @@ form {
 
 /* Keyframe animation for spinning */
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 #result {
@@ -415,7 +423,7 @@ form {
     margin-top: 20px;
     font-size: 15px;
     color: var(--text-color);
-    
+
     padding: 15px;
     border-radius: 8px;
     border: 1px solid #333;
@@ -474,7 +482,8 @@ footer {
     }
 
     .projects-grid {
-        grid-template-columns: 1fr; /* Single column for smaller screens */
+        grid-template-columns: 1fr;
+        /* Single column for smaller screens */
         padding: 1rem;
     }
 
@@ -519,7 +528,8 @@ footer {
     }
 
     .project-box img {
-        height: 150px; /* Smaller image for compact view */
+        height: 150px;
+        /* Smaller image for compact view */
     }
 
     #chat-bot {

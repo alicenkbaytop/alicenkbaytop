@@ -46,19 +46,19 @@ async function searchQuestion() {
   const resultElement = document.getElementById("result");
   const loadingElement = document.getElementById("loading");
   const responseTimeElement = document.getElementById("response-time");
-   
+
   const question = questionInput.value.trim();
-   
+
   // Validate question length
   if (question.split(" ").length > 20) {
     resultElement.innerHTML = "Please limit your question to 20 words or less.";
     return;
   }
-   
+
   // Show loading state
   loadingElement.style.display = "block";
   resultElement.innerHTML = "";
-   
+
   // Check model connection first
   const isModelConnected = await checkModelConnection();
   if (!isModelConnected) {
@@ -66,7 +66,7 @@ async function searchQuestion() {
     loadingElement.style.display = "none";
     return;
   }
-   
+
   try {
     const response = await fetch("http://localhost:5001/get_answer", {
       method: "POST",
@@ -75,13 +75,13 @@ async function searchQuestion() {
       },
       body: JSON.stringify({ question: question }),
     });
-       
+
     if (!response.ok) {
       throw new Error("No network response.");
     }
-       
+
     const data = await response.json();
-       
+
     if (data.answer) {
       resultElement.innerHTML = data.answer;
       responseTimeElement.innerHTML = `Response time: ${data.response_time}`;
@@ -101,11 +101,11 @@ document.addEventListener("DOMContentLoaded", () => {
   // Chat toggle button
   const chatBotButton = document.getElementById("chat-bot");
   chatBotButton?.addEventListener("click", toggleChatPopup);
-   
+
   // Close button
   const closeButton = document.querySelector(".close-btn-chatbot");
   closeButton?.addEventListener("click", closeChatPopup);
-   
+
   // Input field
   const inputField = document.getElementById("input-ai");
   inputField?.addEventListener("keypress", (event) => {
@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
       searchQuestion();
     }
   });
-   
+
   // Initial connection check
   checkModelConnection().then(isConnected => {
     if (!isConnected) {
