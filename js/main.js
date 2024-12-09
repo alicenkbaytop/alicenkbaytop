@@ -124,9 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Projects Page Filter
-
-// Dynamically load the navbar into the element with ID "navbar"
+// --Navbar--
 document.addEventListener('DOMContentLoaded', () => {
   const navbarContainer = document.getElementById('navbar');
   if (navbarContainer) {
@@ -146,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
+// --Footer--
 document.addEventListener('DOMContentLoaded', () => {
   const navbarContainer = document.getElementById('footer');
   if (navbarContainer) {
