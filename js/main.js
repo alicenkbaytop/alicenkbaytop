@@ -125,3 +125,42 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // Projects Page Filter
+
+// Dynamically load the navbar into the element with ID "navbar"
+document.addEventListener('DOMContentLoaded', () => {
+  const navbarContainer = document.getElementById('navbar');
+  if (navbarContainer) {
+    fetch('../navbar.html')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch navbar: ${response.statusText}`);
+        }
+        return response.text();
+      })
+      .then((data) => {
+        navbarContainer.innerHTML = data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+  const navbarContainer = document.getElementById('footer');
+  if (navbarContainer) {
+    fetch('../footer.html')
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`Failed to fetch navbar: ${response.statusText}`);
+        }
+        return response.text();
+      })
+      .then((data) => {
+        navbarContainer.innerHTML = data;
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  }
+});
