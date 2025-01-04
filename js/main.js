@@ -1,11 +1,11 @@
 // This function will set text inside the input field
-function setTextInsideInput() {
+function setPlaceholderInsideInput() {
   const inputElement = document.getElementById('input-ai');  // Select the input field
-  inputElement.value = "Duck it here...";  // Set the value inside the input
+  inputElement.placeholder = "Duck it here..."; // Set the placeholder text
 }
 
 // Call the function to set text
-setTextInsideInput();
+setPlaceholderInsideInput();
 
 // Function to toggle the chat popup visibility
 function toggleChatPopup() {
