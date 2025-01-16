@@ -14,3 +14,4 @@ google-cloud-aiplatform>=1.32.0  # Replace with the correct service if needed
 google-cloud-storage>=2.10.0    # Example for GCP storage
 google-cloud-bigquery>=3.10.0   # Example for GCP BigQuery
 pypdf
+scikit-learn

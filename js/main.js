@@ -1,7 +1,7 @@
 // This function will set text inside the input field
 function setPlaceholderInsideInput() {
   const inputElement = document.getElementById('input-ai');  // Select the input field
-  inputElement.placeholder = "Duck it here..."; // Set the placeholder text
+  inputElement.placeholder = "Ask about me..."; // Set the placeholder text
 }
 
 // Call the function to set text
